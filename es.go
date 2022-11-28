@@ -1,14 +1,25 @@
 package main
+
 import (
-    "fmt"
+  "fmt"
+  "bufio"
+  "os"
 )
-func main() {
-    var n int
-    fmt.Print("Inserisci un numero: ")
-    fmt.Scan(&n)
-    var i int;
-    for i = 1; i <= 10; i++ {
-      fmt.Println(i, "x", n, "=", i*n)
-    }
-    fmt.Println()
+
+
+func LeggiTesto() string {
+  var testo string
+  scanner := bufio.NewScanner(os.Stdin)
+  for  scanner.Scan(){
+      testo = testo + scanner.Text() + "\n"
+  }
+  return testo
+}
+
+func main(){
+
+  s := LeggiTesto()
+  fmt.Println(s)
+
+
 }
